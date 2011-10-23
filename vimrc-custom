@@ -1,0 +1,39 @@
+" arapat's vimrc
+" Arapat Jurat <arapat@arap.at>
+" Based on vgod/vimrc (https://github.com/vgod/vimrc)
+
+" visit https://github.com/arapat/vimrc for more info
+
+
+" General Settings
+
+set nu   " show the line number all the time
+set vb   " disable sound on errors
+
+
+" TAB setting
+
+set softtabstop=8 
+set shiftwidth=8 
+
+
+
+"--------------------------------------------------------------------------- 
+" USEFUL SHORTCUTS
+"--------------------------------------------------------------------------- 
+
+" edit the shortcut for opening the error console
+" <leader>cc in vgod's version
+map <leader>z :botright cope<CR> 
+
+
+
+"--------------------------------------------------------------------------- 
+" PLUGIN SETTINGS
+"--------------------------------------------------------------------------- 
+
+" --- TagBar
+" set default ctags from GNU ctags to Exuberant ctags
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+
+

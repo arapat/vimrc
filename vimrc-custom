@@ -16,6 +16,14 @@ set vb   " disable sound on errors
 set softtabstop=8 
 set shiftwidth=8 
 
+" GUI settings
+colorscheme solarized   " solarized colorscheme
+if has("gui_running")
+  set background=dark
+else
+  set background=light
+endif
+
 
 
 "--------------------------------------------------------------------------- 
@@ -35,5 +43,4 @@ map <leader>z :botright cope<CR>
 " --- TagBar
 " set default ctags from GNU ctags to Exuberant ctags
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-
 

@@ -24,7 +24,13 @@ else
   set background=light
 endif
 
-
+" Compile and run
+function CompileAndRun()
+  write
+  exec "!rm %:r"
+  make
+  exec "!./%:r"
+endfunc
 
 "--------------------------------------------------------------------------- 
 " USEFUL SHORTCUTS
@@ -34,7 +40,8 @@ endif
 " <leader>cc in vgod's version
 map <leader>z :botright cope<CR> 
 
-
+" Compile and run
+map <leader>c :call CompileAndRun()<CR>
 
 "--------------------------------------------------------------------------- 
 " PLUGIN SETTINGS

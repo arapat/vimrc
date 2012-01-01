@@ -24,11 +24,16 @@ else
   set background=light
 endif
 
-" Compile and run
-function CompileAndRun()
+" Compile
+function Compile()
   write
   exec "!rm %:r"
   make
+endfunc
+
+" Compile and run
+function CompileAndRun()
+  call Compile()
   exec "!./%:r"
 endfunc
 
@@ -41,7 +46,8 @@ endfunc
 map <leader>z :botright cope<CR> 
 
 " Compile and run
-map <leader>c :call CompileAndRun()<CR>
+map <leader>c :call Compile()<CR>
+map <leader>r :call CompileAndRun()<CR>
 
 "--------------------------------------------------------------------------- 
 " PLUGIN SETTINGS

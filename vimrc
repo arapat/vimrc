@@ -1,9 +1,15 @@
+" arapat's vimrc
+" Arapat Jurat <arapat@arap.at>
+" read https://github.com/arapat/vimrc/blob/master/README.md for more info
+"
+" Based on:
 " vgod's vimrc
 " Tsung-Hsiang (Sean) Chang <vgod@vgod.tw>
-" Fork me on GITHUB  https://github.com/vgod/vimrc
-
 " read https://github.com/vgod/vimrc/blob/master/README.md for more info
 
+" tasks TODO:
+" 1. tabs settings
+" 2. fix the shortcut conflict with Tab
 
 " For pathogen.vim: auto load all plugins in .vim/bundle
 call pathogen#runtime_append_all_bundles()
@@ -16,6 +22,8 @@ set bs=2		" allow backspacing over everything in insert mode
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
+set nu                  " show the line number all the time
+set vb                  " disable sound on errors
 
 
 filetype on           " Enable filetype detection
@@ -30,15 +38,16 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
-if has("gui_running")	" GUI color and font settings
+" GUI color and font settings
+colors solarized
+if has("gui_running")
   set guifont=Osaka-Mono:h20
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
-  colors moria
 else
 " terminal color settings
-  colors vgod
+  set background=light
 endif
 
 set clipboard=unnamed	" yank to the system register (*) by default
@@ -64,7 +73,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" TAB setting{
+" TAB setting{ TODO
    set expandtab        "replace <TAB> with spaces
    set softtabstop=3 
    set shiftwidth=3 
@@ -123,7 +132,7 @@ let g:mapleader=","
 map <leader>r :call Replace()<CR>
 
 " open the error console
-map <leader>cc :botright cope<CR> 
+map <leader>z :botright cope<CR> 
 " move to next error
 map <leader>] :cn<CR>
 " move to the prev error
@@ -309,13 +318,6 @@ hi link EasyMotionShade  Comment
 nnoremap <silent> <F7> :TagbarToggle<CR> 
 " set focus to TagBar when opening it
 let g:tagbar_autofocus = 1
-
-
-
-"--------------------------------------------------------------------------- 
-" CUSTOM SETTINGS
-"--------------------------------------------------------------------------- 
-
-source ~/.vim/vimrc-custom
-
+" set default ctags from GNU ctags to Exuberant ctags
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 

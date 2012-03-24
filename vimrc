@@ -7,10 +7,6 @@
 " Tsung-Hsiang (Sean) Chang <vgod@vgod.tw>
 " read https://github.com/vgod/vimrc/blob/master/README.md for more info
 
-" tasks TODO:
-" 1. tabs settings
-" 2. fix the shortcut conflict with Tab
-
 " For pathogen.vim: auto load all plugins in .vim/bundle
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -73,10 +69,15 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" TAB setting{ TODO
+" TAB setting{
    set expandtab        "replace <TAB> with spaces
-   set softtabstop=3 
-   set shiftwidth=3 
+   " default settings
+   set softtabstop=4
+   set shiftwidth=4
+   " more specific settings
+   autocmd FileType c,cpp,cc set softtabstop=8 | set shiftwidth=8
+   autocmd FileType java set softtabstop=8 | set shiftwidth=8
+   autocmd FileType rb set softtabstop=2 | set shiftwidth=2
 
    au FileType Makefile set noexpandtab
 "}      							

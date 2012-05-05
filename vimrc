@@ -8,6 +8,12 @@
 " read https://github.com/vgod/vimrc/blob/master/README.md for more info
 
 " For pathogen.vim: auto load all plugins in .vim/bundle
+
+let g:pathogen_disabled = []
+if !has('gui_running')
+    call add(g:pathogen_disabled, 'powerline')
+endif
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 

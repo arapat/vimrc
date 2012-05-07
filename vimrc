@@ -41,14 +41,15 @@ syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
 " GUI color and font settings
-colors solarized
 if has("gui_running")
+  colors moria
   set guifont=Osaka-Mono:h20
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
 else
 " terminal color settings
+  colors solarized
   set background=light
 endif
 

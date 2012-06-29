@@ -328,3 +328,8 @@ let g:tagbar_autofocus = 1
 " set default ctags from GNU ctags to Exuberant ctags
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
+
+" --- Numbers
+" toggle Numbers with ctrl+X
+nnoremap <C-X> :NumbersToggle<CR>
+

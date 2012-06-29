@@ -83,7 +83,6 @@ set tm=500
    set shiftwidth=4
    " more specific settings
    autocmd FileType c,cpp,cc set softtabstop=8 | set shiftwidth=8
-   autocmd FileType java set softtabstop=8 | set shiftwidth=8
    autocmd FileType ruby set softtabstop=2 | set shiftwidth=2
 
    au FileType Makefile set noexpandtab
@@ -322,8 +321,8 @@ hi link EasyMotionShade  Comment
 
 
 " --- TagBar
-" toggle TagBar with F7
-nnoremap <silent> <F7> :TagbarToggle<CR> 
+" toggle TagBar with ctrl+C
+nnoremap <silent> <C-C> :TagbarToggle<CR> 
 " set focus to TagBar when opening it
 let g:tagbar_autofocus = 1
 " set default ctags from GNU ctags to Exuberant ctags

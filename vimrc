@@ -44,6 +44,7 @@ set hlsearch		" search highlighting
 if has("gui_running")
   colors moria
   set guifont=Osaka-Mono:h20
+  set guifontwide=HiraginoSansGB-W3:h18
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
@@ -84,6 +85,7 @@ set tm=500
    " more specific settings
    autocmd FileType c,cpp,cc set softtabstop=8 | set shiftwidth=8
    autocmd FileType ruby set softtabstop=2 | set shiftwidth=2
+   autocmd FileType xml set softtabstop=2 | set shiftwidth=2
 
    au FileType Makefile set noexpandtab
 "}      							

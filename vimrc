@@ -36,6 +36,8 @@ filetype plugin on    " Enable filetype-specific plugins
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
+" auto saved when switch windows
+au FocusLost * :wa
 
 syntax on		" syntax highlight
 set hlsearch		" search highlighting

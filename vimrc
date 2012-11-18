@@ -26,6 +26,7 @@ set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
 set nu                  " show the line number all the time
 set vb                  " disable sound on errors
+set spell
 
 
 filetype on           " Enable filetype detection
@@ -52,8 +53,8 @@ if has("gui_running")
   set cursorline        " highlight current line
 else
 " terminal color settings
-  colors desert
-  set background=light
+  colors moria
+  set background=dark
   set t_Co=256          " 256 color mode
 endif
 

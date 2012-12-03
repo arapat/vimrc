@@ -88,6 +88,7 @@ set tm=500
    set shiftwidth=4
    " more specific settings
    autocmd FileType c,cpp,cc set softtabstop=8 | set shiftwidth=8
+   autocmd FileType python set softtabstop=4 | set shiftwidth=4
    autocmd FileType ruby set softtabstop=2 | set shiftwidth=2
    autocmd FileType xml set softtabstop=2 | set shiftwidth=2
 

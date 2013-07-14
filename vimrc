@@ -176,6 +176,9 @@ map <C-t><C-t> :tabnew<CR>
 " close tab
 map <C-t><C-w> :tabclose<CR> 
 
+" smart new line
+imap <S-Return> <CR><CR><C-o>k<Tab>
+
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
 

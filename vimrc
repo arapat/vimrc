@@ -44,19 +44,11 @@ syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
 " GUI color and font settings
-if has("gui_running")
-  colors moria
-  set guifont=Osaka-Mono:h20
-  set guifontwide=HiraginoSansGB-W3:h18
-  set background=dark 
-  set t_Co=256          " 256 color mode
-  set cursorline        " highlight current line
-else
-" terminal color settings
-  colors moria
-  set background=dark
-  set t_Co=256          " 256 color mode
-endif
+colors moria
+set guifont=Hack
+set background=dark
+set t_Co=256          " 256 color mode
+set cursorline        " highlight current line
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -81,18 +73,16 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" TAB setting{
+" TAB setting {
    set expandtab        "replace <TAB> with spaces
    " default settings
    set softtabstop=4
    set shiftwidth=4
    " more specific settings
-   autocmd FileType c,cpp,cc set softtabstop=8 | set shiftwidth=8
-   autocmd FileType ruby set softtabstop=2 | set shiftwidth=2
    autocmd FileType xml,html,xml set softtabstop=2 | set shiftwidth=2
 
    au FileType Makefile set noexpandtab
-"}      							
+"}
 
 " status line {
 set laststatus=2
@@ -124,15 +114,6 @@ autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-"--------------------------------------------------------------------------- 
-" Tip #382: Search for <cword> and replace with input() in all open buffers 
-"--------------------------------------------------------------------------- 
-fun! Replace() 
-    let s:word = input("Replace " . expand('<cword>') . " with:") 
-    :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
-    :unlet! s:word 
-endfun 
-
 
 "--------------------------------------------------------------------------- 
 " USEFUL SHORTCUTS
@@ -143,9 +124,6 @@ nnoremap ; :
 " set leader to ,
 let mapleader=","
 let g:mapleader=","
-
-"replace the current word in all opened buffers
-map <leader>r :call Replace()<CR>
 
 " open the error console
 map <leader>z :botright cope<CR> 
@@ -222,21 +200,6 @@ cmap cd. lcd %:p:h
 " PROGRAMMING SHORTCUTS
 "--------------------------------------------------------------------------- 
 
-" Ctrl-[ jump out of the tag stack (undo Ctrl-])
-map <C-[> <ESC>:po<CR>
-
-" ,g generates the header guard
-map <leader>g :call IncludeGuard()<CR>
-fun! IncludeGuard()
-   let basename = substitute(bufname(""), '.*/', '', '')
-   let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
-   call append(0, "#ifndef " . guard)
-   call append(1, "#define " . guard)
-   call append( line("$"), "#endif // for #ifndef " . guard)
-endfun
-
-
-
 " Enable omni completion. (Ctrl-X Ctrl-O)
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -262,27 +225,10 @@ autocmd BufNewFile,BufRead *.sass             set ft=sass.css
 "--------------------------------------------------------------------------- 
 " ENCODING SETTINGS
 "--------------------------------------------------------------------------- 
-set encoding=utf-8                                  
+set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
-
-fun! ViewUTF8()
-	set encoding=utf-8                                  
-	set termencoding=big5
-endfun
-
-fun! UTF8()
-	set encoding=utf-8                                  
-	set termencoding=big5
-	set fileencoding=utf-8
-	set fileencodings=ucs-bom,big5,utf-8,latin1
-endfun
-
-fun! Big5()
-	set encoding=big5
-	set fileencoding=big5
-endfun
+set fileencodings=utf-8
 
 
 "--------------------------------------------------------------------------- 
@@ -318,7 +264,6 @@ if !has("gui_running")
 endif
 
 
-
 " --- Command-T
 let g:CommandTMaxHeight = 15
 
@@ -329,16 +274,6 @@ let g:SuperTabDefaultCompletionType = "context"
 "let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
-
-
-" --- TagBar
-" toggle TagBar with ctrl+C
-nnoremap <silent> <C-C> :TagbarToggle<CR> 
-" set focus to TagBar when opening it
-let g:tagbar_autofocus = 1
-" set default ctags from GNU ctags to Exuberant ctags
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-
 
 " --- Numbers
 " toggle Numbers with ctrl+X

@@ -2,7 +2,7 @@ arapat's vimrc
 ============
 Author: Tsung-Hsiang (Sean) Chang <vgod@vgod.tw>
 
-Revised by Arapat Jurat (arapat) <araapt@arap.at>
+Revised by Julaiti Alafate (arapat)
 
 Fork me on GITHUB  https://github.com/arapat/vimrc.
 

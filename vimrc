@@ -27,6 +27,7 @@ set autoread		" auto read when file is changed from outside
 set nu                  " show the line number all the time
 set vb                  " disable sound on errors
 set spell
+autocmd FileType python set nospell
 
 
 filetype on           " Enable filetype detection

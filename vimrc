@@ -49,7 +49,8 @@ set background=dark
 set t_Co=256          " 256 color mode
 set cursorline        " highlight current line
 
-set clipboard=unnamed	" yank to the system register (*) by default
+" yank to the system register (*) by default
+set clipboard^=unnamed,unnamedplus
 set showmatch		" Cursor shows matching ) and }
 set showmode		" Show current mode
 set wildchar=<TAB>	" start wild expansion in the command line using <TAB>

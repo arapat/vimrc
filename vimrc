@@ -26,7 +26,6 @@ set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
 set nu                  " show the line number all the time
 set vb                  " disable sound on errors
-set spell
 
 
 filetype on           " Enable filetype detection
@@ -45,12 +44,12 @@ set hlsearch		" search highlighting
 
 " GUI color and font settings
 colors moria
-set guifont=Hack
+set guifont=Hack:h16
 set background=dark
 set t_Co=256          " 256 color mode
 set cursorline        " highlight current line
 
-set clipboard=unnamedplus	" yank to the system register (*) by default
+set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
 set showmode		" Show current mode
 set wildchar=<TAB>	" start wild expansion in the command line using <TAB>
